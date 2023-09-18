@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bootcamp 03</title>
+    <link href="<?= base_url() ?>modules/bootcamp03/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 
 <body>
     <?php
-    // print_r($karyawan);
     echo "username : " . $user;
     ?>
-    
+
     <h1>Data Karyawan</h1>
 
     <table border="1">
@@ -36,23 +36,23 @@
             echo "<tbody>";
             $no = 1;
             foreach ($karyawan as $k) :
-            echo "<tr>";
-            echo "<td>" . $k ['nik'] . "</td>";
-            echo "<td>" . $k ['nama'] . "</td>";
-            echo "<td>" . $k ['tempat_lahir'] . "</td>";
-            echo "<td>" . $k ['tanggal_lahir'] . "</td>";
-            echo "<td>" . $k ['umur'] . "</td>";
-            echo "<td>" . $k ['alamat'] . "</td>";
-            echo "<td>" . $k ['telp'] . "</td>";
-            echo "<td>" . $k ['jabatan'] . "</td>";
-            echo "<td>" . $k ['created_by'] . "</td>";
-            echo "<td>" . $k ['created_time'] . "</td>";
-            echo "<td>
+                echo "<tr>";
+                echo "<td>" . $k['nik'] . "</td>";
+                echo "<td>" . $k['nama'] . "</td>";
+                echo "<td>" . $k['tempat_lahir'] . "</td>";
+                echo "<td>" . $k['tanggal_lahir'] . "</td>";
+                echo "<td>" . $k['umur'] . "</td>";
+                echo "<td>" . $k['alamat'] . "</td>";
+                echo "<td>" . $k['telp'] . "</td>";
+                echo "<td>" . $k['jabatan'] . "</td>";
+                echo "<td>" . $k['created_by'] . "</td>";
+                echo "<td>" . $k['created_time'] . "</td>";
+                echo "<td>
                     <a href='#' class='btn btn-success'>Add</a>
                     <a href='#' class='btn btn-warning'>Edit</a>
                     <a href='#' class='btn btn-danger'>Delete</a>
                 </td>";
-            echo "</tr>";
+                echo "</tr>";
             endforeach;
             echo "</tbody>";
         } else {
@@ -60,8 +60,11 @@
             echo "</tbody>";
         }
 
-        ?>  
+        ?>
     </table>
+
+    <script src='<?= base_url() ?>modules/bootcamp03/js/jquery-2.0.3.min.js'></script>
+    <script src="<?= base_url() ?>modules/bootcamp03/js/bootstrap.min.js"></script>
 </body>
 
 </html>

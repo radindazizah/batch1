@@ -3,19 +3,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Bootcamp03 extends CI_Controller {
 
-	// function __construct() 
-	// {
-	// 	parent::__construct($securePage=false);
-	// 	$this->load->model('Bootcamp03_model');
+	function __construct() 
+	{
+		parent::__construct($securePage=false);
+		$this->load->model('Bootcamp03_model');
 		
 		
-	// }
+	}
 
 	public function index()
 	{
-		$data['user']=$this->input->get_post('id');
+		// $data['user']=$this->input->get_post('id');
+		// $this->load->view('Bootcamp03_view',$data);
 
-		$this->load->view('Bootcamp03_view',$data);
+		$data['karyawan'] = $this->Bootcamp03_model->getKaryawan();
+        $this->load->view('Bootcamp03_view', $data);
 		
 	}
 

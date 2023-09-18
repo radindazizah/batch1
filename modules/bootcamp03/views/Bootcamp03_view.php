@@ -8,7 +8,13 @@
 </head>
 
 <body>
-    <h1>Data karyawan</h1>
+    <?php
+    // print_r($karyawan);
+    echo "username : " . $user;
+    ?>
+    
+    <h1>Data Karyawan</h1>
+
     <table border="1">
         <thead>
             <tr>
@@ -24,31 +30,37 @@
                 <th>Created Time</th>
             </tr>
         </thead>
-        <tbody>
-            <?php
+        <?php
+
+        if ($user == "hendri") {
+            echo "<tbody>";
             $no = 1;
             foreach ($karyawan as $k) :
-            ?>
-                <tr>
-                    <td><?= $k['nik'] ?></td>
-                    <td><?= $k['nama'] ?></td>
-                    <td><?= $k['tempat_lahir'] ?></td>
-                    <td><?= $k['tanggal_lahir'] ?></td>
-                    <td><?= $k['umur'] ?></td>
-                    <td><?= $k['alamat'] ?></td>
-                    <td><?= $k['telp'] ?></td>
-                    <td><?= $k['jabatan'] ?></td>
-                    <td><?= $k['created_by'] ?></td>
-                    <td><?= $k['created_time'] ?></td>
-                    <td><a href="" class="btn btn-success">Add</a>
-                        <a href="" class="btn btn-warning">Edit</a>
-                        <a href="" class="btn btn-danger">Delete</a>
-                    </td>
-                </tr>
-            <?php
+            echo "<tr>";
+            echo "<td>" . $k ['nik'] . "</td>";
+            echo "<td>" . $k ['nama'] . "</td>";
+            echo "<td>" . $k ['tempat_lahir'] . "</td>";
+            echo "<td>" . $k ['tanggal_lahir'] . "</td>";
+            echo "<td>" . $k ['umur'] . "</td>";
+            echo "<td>" . $k ['alamat'] . "</td>";
+            echo "<td>" . $k ['telp'] . "</td>";
+            echo "<td>" . $k ['jabatan'] . "</td>";
+            echo "<td>" . $k ['created_by'] . "</td>";
+            echo "<td>" . $k ['created_time'] . "</td>";
+            echo "<td>
+                    <a href='#' class='btn btn-success'>Add</a>
+                    <a href='#' class='btn btn-warning'>Edit</a>
+                    <a href='#' class='btn btn-danger'>Delete</a>
+                </td>";
+            echo "</tr>";
             endforeach;
-            ?>
-        </tbody>
+            echo "</tbody>";
+        } else {
+            echo "<tbody>";
+            echo "</tbody>";
+        }
+
+        ?>  
     </table>
 </body>
 

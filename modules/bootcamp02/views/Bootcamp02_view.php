@@ -10,6 +10,9 @@
 </head>
 
 <body>
+    <?php
+    echo "username : " . $user;
+    ?>
     <h3>Data karyawan</h3>
     <table class="table table-bordered">
         <thead>

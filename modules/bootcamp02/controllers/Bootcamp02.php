@@ -12,7 +12,16 @@ class Bootcamp02 extends CI_Controller
 
 	public function index()
 	{
-		$data['karyawan'] = $this->Bootcamp02_model->getData();
+		$user = $this->input->get_post('id');
+
+		if ($user === 'nico') {
+			$data['karyawan'] = $this->Bootcamp02_model->getData();
+		} else {
+			$data['karyawan'] = array(); 
+		}
+
+		$data['user'] = $user; 
+
 		$this->load->view('Bootcamp02_view', $data);
 	}
 }

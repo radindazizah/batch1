@@ -88,7 +88,7 @@ jQuery(grid_selector).jqGrid('navGrid',pager_selector,
 	},
 	{
 		//edit record form
-		//closeAfterEdit: true,
+		closeAfterEdit: true,
 		beforeSubmit : function( postdata, form , oper) {
 			console.log(postdata);
 			console.log(postdata.is_active);

@@ -14,14 +14,20 @@ class Bootcamp02 extends CI_Controller
 	{
 		$user = $this->input->get_post('id');
 
-		if ($user === 'nico') {
-			$data['karyawan'] = $this->Bootcamp02_model->getData();
-		} else {
-			$data['karyawan'] = array(); 
-		}
+		// if ($user === 'nico') {
+		// 	$data['karyawan'] = $this->Bootcamp02_model->getListData();
+		// } else {
+		// 	$data['karyawan'] = array();
+		// }
 
-		$data['user'] = $user; 
+		$data['user'] = $user;
 
 		$this->load->view('Bootcamp02_view', $data);
+	}
+
+	public function getKaryawan()
+	{
+		$data = $this->Bootcamp02_model->getListData();
+		echo $data;
 	}
 }

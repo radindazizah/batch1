@@ -28,8 +28,8 @@ grid_selector.jqGrid({
 		{name: 'nama', width: 150, sortable: false, editable: true, editrules: {required: true} ,editoptions: {maxlength: 50} },
 		{name: 'tempat_lahir', width: 150, sortable: false, editable: true, editrules: {required: false}},
 		{name: 'tanggal_lahir', width: 150, sortable: false, editable: true, editrules: {required: false}},
-		{name: 'umur', width: 150, sortable: false, editable: true, editrules: {required: false}},
-		{name: 'alamat', width: 150, sortable: false, editable: true, editrules: {required: false}},
+		{name: 'umur', width: 50, sortable: false, editable: true, editrules: {required: false}},
+		{name: 'alamat', width: 200, sortable: false, editable: true, editrules: {required: false}},
 		{name: 'telp', width: 150, sortable: false, editable: true, editrules: {required: false}},
 		{name: 'jabatan', width: 150, sortable: false, editable: true, editrules: {required: false}},
 		{name: 'created_by', width: 150, sorttype: false, editable: false },
@@ -60,10 +60,6 @@ grid_selector.jqGrid({
 			enableTooltips(table);
 		}, 0);
 	},
-
-	
-	caption: "Data Karyawan",
-
 	
 	autowidth: true
 

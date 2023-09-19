@@ -57,9 +57,7 @@
                     <input type="text" class="form-control" id="telp" name="telp" placeholder="No. Telepon">
                 </div>
                 <div class="form-group">
-                    <!-- <label for="jabatan">Jabatan</label>
-                    <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan"> -->
-                    <label for="jabatan">Example multiple select</label>
+                    <label for="jabatan">Jabatan</label>
                     <select class="form-control" id="jabatan" name="jabatan">
                         <option>manager</option>
                         <option>staff</option>

@@ -4,6 +4,9 @@ class Bootcamp03_model extends CI_Model
 {
     public function getKaryawan()
     {
-        return $this->db->get('karyawan')->result_array();
+        $userid = $this->input->get_post('id', true);
+        $result = $this->db->get_where('karyawan', array('created_by' => $userid))->result_array();
+
+        return json_encode($result);
     }
 }

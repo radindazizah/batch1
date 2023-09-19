@@ -6,65 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootcamp 03</title>
     <link href="<?= base_url() ?>modules/bootcamp03/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="<?= base_url() ?>modules/bootcamp03/css/jquery-ui.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>modules/bootcamp03/css/ui.jqgrid.css" />
 </head>
 
 <body>
     <?php
     echo "username : " . $user;
+
     ?>
 
-    <h1>Data Karyawan</h1>
+    <table id="userKaryawan"></table>
+    <div id="userKaryawanPager"></div>
 
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Nik</th>
-                <th>Nama</th>
-                <th>Tempat Lahir</th>
-                <th>Tanggal Lahir</th>
-                <th>Umur</th>
-                <th>Alamat</th>
-                <th>Telp</th>
-                <th>Jabatan</th>
-                <th>Created By</th>
-                <th>Created Time</th>
-            </tr>
-        </thead>
-        <?php
-
-        if ($user == "hendri") {
-            echo "<tbody>";
-            $no = 1;
-            foreach ($karyawan as $k) :
-                echo "<tr>";
-                echo "<td>" . $k['nik'] . "</td>";
-                echo "<td>" . $k['nama'] . "</td>";
-                echo "<td>" . $k['tempat_lahir'] . "</td>";
-                echo "<td>" . $k['tanggal_lahir'] . "</td>";
-                echo "<td>" . $k['umur'] . "</td>";
-                echo "<td>" . $k['alamat'] . "</td>";
-                echo "<td>" . $k['telp'] . "</td>";
-                echo "<td>" . $k['jabatan'] . "</td>";
-                echo "<td>" . $k['created_by'] . "</td>";
-                echo "<td>" . $k['created_time'] . "</td>";
-                echo "<td>
-                    <a href='#' class='btn btn-success'>Add</a>
-                    <a href='#' class='btn btn-warning'>Edit</a>
-                    <a href='#' class='btn btn-danger'>Delete</a>
-                </td>";
-                echo "</tr>";
-            endforeach;
-            echo "</tbody>";
-        } else {
-            echo "<tbody>";
-            echo "</tbody>";
-        }
-
-        ?>
-    </table>
+    <script type="text/javascript">
+        var USER_ID = '<?= $user ?>';
+    </script>
 
     <script src='<?= base_url() ?>modules/bootcamp03/js/jquery-2.0.3.min.js'></script>
     <script src="<?= base_url() ?>modules/bootcamp03/js/bootstrap.min.js"></script>
+    <script src="<?= base_url() ?>modules/bootcamp03/js/jquery-ui.js"></script>
+    <script src="<?= base_url(); ?>modules/bootcamp03/js/jqGrid/jquery.jqGrid.js"></script>
+    <script src="<?= base_url(); ?>modules/bootcamp03/js/jqGrid/i18n/grid.locale-en.js"></script>
+    <script src="<?php echo base_url(); ?>modules/bootcamp03/js/Bootcamp03.js?v=<?= rand(0, 20); ?>"></script>
 </body>
 
 </html>

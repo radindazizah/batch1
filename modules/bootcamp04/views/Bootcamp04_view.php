@@ -15,7 +15,11 @@
         <table id="userKaryawan"></table>
         <div id="userKaryawanPager"></div>
     </div>
-
+	<!--<div class="button-wrapper">
+		<button type="button" class="btn btn-primary" id="show-add">Add</button>
+		<button type="button" class="btn btn-warning">Edit</button>
+		<button type="button" class="btn btn-danger">Delete</button>
+    </div>-->
     <script>
         var USER_ID = '<?= $user ?>';
     </script>
@@ -27,6 +31,7 @@
     <script src="<?= base_url() ?>modules/bootcamp04/js/jqGrid/jquery.jqGrid.js"></script>
     <script src="<?= base_url() ?>modules/bootcamp04/js/jqGrid/i18n/grid.locale-en.js"></script>
     <script src="<?= base_url() ?>modules/bootcamp04/js/Bootcamp04.js?v=<?= time(); ?>"></script>
+	
     <!-- Add any additional JavaScript files here -->
 </body>
 </html>

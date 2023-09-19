@@ -14,6 +14,8 @@
 
 <body>
     <div class="container">
+        <h1>Data Karyawan</h1>
+
         <?php
         echo "<p>Username : " . $user . "</p>";
         ?>
@@ -27,42 +29,45 @@
             <button type="button" class="btn btn-danger">Delete</button>
         </div>
 
-        <div class="row form-wrapper">
-            <div class="col-lg-3 add-form-wrapper">
-                <form>
-                    <div class="form-group">
-                        <label for="nik">NIK</label>
-                        <input type="number" class="form-control" id="nik" placeholder="NIK">
-                    </div>
-                    <div class="form-group">
-                        <label for="nama">Nama</label>
-                        <input type="text" class="form-control" id="nama" placeholder="Nama">
-                    </div>
-                    <div class="form-group">
-                        <label for="tempat-lahir">Tempat Lahir</label>
-                        <input type="text" class="form-control" id="tempat-lahir" placeholder="Tempat Lahir">
-                    </div>
-                    <div class="form-group">
-                        <label for="umur">Umur</label>
-                        <input type="number" class="form-control" id="umur" placeholder="Umur">
-                    </div>
-                    <div class="form-group">
-                        <label for="alamat">Alamat</label>
-                        <input type="text" class="form-control" id="alamat" placeholder="Alamat">
-                    </div>
-                    <div class="form-group">
-                        <label for="telp">Telp</label>
-                        <input type="text" class="form-control" id="telp" placeholder="No. Telepon">
-                    </div>
-                    <div class="form-group">
-                        <label for="jabatan">Jabatan</label>
-                        <input type="text" class="form-control" id="jabatan" placeholder="Jabatan">
-                    </div>
-                    <div class="btn-submit-wrapper">
-                        <button type="submit" class="btn btn-primary btn-submit">Submit</button>
-                    </div>
-                </form>
-            </div>
+        <div class="form-wrapper">
+            <form class="add-form-wrapper" action="<?php echo base_url() ?>index.php/bootcamp03/addKaryawan/?id=<?php echo $user ?>" method="POST">
+                <h2 class="card-title">Tambah Data Karyawan</h2>
+                <div class="form-group">
+                    <label for="nik">NIK</label>
+                    <input type="number" class="form-control" id="nik" name="nik" placeholder="NIK">
+                </div>
+                <div class="form-group">
+                    <label for="nik">Nama</label>
+                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
+                </div>
+                <div class="form-group">
+                    <label for="tempat-lahir">Tempat Lahir</label>
+                    <input type="text" class="form-control" id="tempat-lahir" name="tempat_lahir" placeholder="Tempat Lahir">
+                </div>
+                <div class="form-group">
+                    <label for="tanggal-lahir">Tanggal Lahir</label>
+                    <input type="date" class="form-control" id="tanggal-lahir" name="tanggal_lahir" placeholder="Tanggal Lahir">
+                </div>
+                <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Alamat"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="telp">Telp</label>
+                    <input type="text" class="form-control" id="telp" name="telp" placeholder="No. Telepon">
+                </div>
+                <div class="form-group">
+                    <!-- <label for="jabatan">Jabatan</label>
+                    <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan"> -->
+                    <label for="jabatan">Example multiple select</label>
+                    <select class="form-control" id="jabatan" name="jabatan">
+                        <option>manager</option>
+                        <option>staff</option>
+                        <option>supervisor</option>
+                    </select>
+                </div>
+                <input type="submit" class="btn btn-primary btn-submit" name="submit" value="Submit"></input>
+            </form>
         </div>
 
 

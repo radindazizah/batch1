@@ -23,4 +23,10 @@ class Bootcamp03 extends CI_Controller
 		$data = $this->Bootcamp03_model->getKaryawan();
 		echo $data;
 	}
+
+	public function addKaryawan()
+	{
+		$data = $this->Bootcamp03_model->addKaryawan();
+		redirect('bootcamp03/?id=' . $data['created_by'], $data);
+	}
 }

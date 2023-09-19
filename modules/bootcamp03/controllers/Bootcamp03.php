@@ -12,18 +12,15 @@ class Bootcamp03 extends CI_Controller
 
 	public function index()
 	{
-		$user = $data['user'] = $this->input->get_post('id');
-		
-		if ($user == "hendri") {
-			$data['karyawan'] = $this->Bootcamp03_model->getKaryawan();
-			$this->load->view('Bootcamp03_view', $data);
-		} else {
-			$data['user'] = $this->input->get_post('id');
-			$this->load->view('Bootcamp03_view',$data);
-		}
+		$data['user'] = $this->input->get_post('id');
+		$data['karyawan'] = $this->Bootcamp03_model->getKaryawan();
+
+		$this->load->view('Bootcamp03_view', $data);
 	}
 
-	public function getData()
+	public function getKaryawan()
 	{
+		$data = $this->Bootcamp03_model->getKaryawan();
+		echo $data;
 	}
 }

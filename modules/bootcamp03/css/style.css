@@ -1,0 +1,23 @@
+.button-wrapper {
+    margin: 1rem 0 1rem 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-wrapper > button {
+    margin: 0 5px 0 5px;
+}
+
+.form-wrapper {
+    padding: 10px 0;
+}
+
+.add-form-wrapper {
+    box-shadow: 5px 10px 8px #888888;
+}
+
+.btn-submit-wrapper {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: flex-end;
+}

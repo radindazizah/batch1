@@ -43,10 +43,10 @@ grid_selector.jqGrid({
 	rowList:[10,20,30],
 	pager : pager_selector,
 	altRows: true,
-	toppager: true,
+	//toppager: true,
 	
-	multiselect: true,
-	multikey: "ctrlKey",
+	// multiselect: true,
+	// multikey: "ctrlKey",
 	multiboxonly: true,
 	onSelectRow: function(data){
 		select=true;
@@ -120,7 +120,7 @@ jQuery(grid_selector).jqGrid('navGrid',pager_selector,
 	},
 	{
 		//new record form
-		closeAfterAdd: true,
+		//closeAfterAdd: true,
 		afterSubmit:function(data,postd){
 				console.log(data);
 				console.log(postd);
@@ -180,7 +180,7 @@ grid_selector.jqGrid('navButtonAdd',pager_selector,
         title: "Reset Password",
         caption: "",
         position: "second",
-		//onClickButton: customButtonReset
+		onClickButton: customButtonReset
     }
 );
 

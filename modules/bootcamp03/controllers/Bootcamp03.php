@@ -9,13 +9,14 @@ class Bootcamp03 extends CI_Controller
 		parent::__construct($securePage = false);
 		$this->load->model('Bootcamp03_model');
 		$this->load->library('form_validation');
+		$this->load->library('session');
 	}
 
 	public function index()
 	{
 		$data['user'] = $this->input->get_post('id');
 		$data['karyawan'] = $this->Bootcamp03_model->getKaryawan();
-
+		
 		$this->load->view('Bootcamp03_view', $data);
 	}
 
@@ -27,16 +28,22 @@ class Bootcamp03 extends CI_Controller
 
 	public function addKaryawan()
 	{
-		$rules = $this->Bootcamp03_model->rules();
-		$data = $this->Bootcamp03_model->addKaryawan();
+		// store user into session 
+		$data['user'] = $this->input->get_post('id');
+		$this->session->set_userdata('user_session', $data['user']);
 
+		// form validation
+		$rules = $this->Bootcamp03_model->rules();
 		$this->form_validation->set_rules($rules);
+
+		// changing delimiters globally for adding styles
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		
 		if ($this->form_validation->run() == FALSE) {
-			echo "Form gagal";
-			echo validation_errors();
+			$this->load->view('Bootcamp03_view', $data);
 		} else {
-			redirect('bootcamp03/?id=' . $data['created_by']);
+			$data = $this->Bootcamp03_model->addKaryawan();
+			redirect('bootcamp03/?id=' . $_SESSION['user_session']);
 		}
 	}
 }

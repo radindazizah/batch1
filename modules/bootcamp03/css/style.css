@@ -27,3 +27,7 @@ body {
 #alamat {
     resize: none;
 }
+
+.error {
+    color: red;
+}

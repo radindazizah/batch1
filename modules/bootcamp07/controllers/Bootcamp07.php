@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class bootcamp07 extends CI_Controller {
+class Bootcamp07 extends CI_Controller {
 
 	function __construct() 
 	{
@@ -24,5 +24,8 @@ class bootcamp07 extends CI_Controller {
 		echo $data;
 	}
 	
-	
+	public function addData(){
+		$data['user']=$this->input->get_post('id');
+		$this->load->view('bootcamp07_add');
+	}
 }

@@ -2,6 +2,47 @@
 
 class Bootcamp03_model extends CI_Model
 {
+    public function rules()
+    {
+        return [
+            [
+                'field' => 'nik',
+                'label' => 'Nik',
+                'rules' => 'required|max_length[36]'
+            ],
+            [
+                'field' => 'nama',
+                'label' => 'Nama',
+                'rules' => 'required|max_length[100]'
+            ],
+            [
+                'field' => 'tempat_lahir',
+                'label' => 'Tempat Lahir',
+                'rules' => 'required'
+            ],
+            [
+				'field' => 'tanggal_lahir', 
+				'label' => 'Tanggal Lahir', 
+				'rules' => 'required'
+			],
+            [
+				'field' => 'alamat', 
+				'label' => 'alamat', 
+				'rules' => 'required|max_length[100]'
+			],
+            [
+				'field' => 'telp', 
+				'label' => 'telp', 
+				'rules' => 'required|max_length[15]'
+			],
+            [
+				'field' => 'jabatan', 
+				'label' => 'jabatan', 
+				'rules' => 'required'
+			],
+        ];
+    }
+
     public function getKaryawan()
     {
         $userid = $this->input->get_post('id', true);
@@ -19,7 +60,7 @@ class Bootcamp03_model extends CI_Model
         $alamat = $this->input->get_post('alamat');
         $telp = $this->input->get_post('telp');
         $jabatan = $this->input->get_post('jabatan');
-        $created_by = $this->input->get_post('id');
+        $user = $this->input->get_post('id');
         $created_time = date("Y-m-d h:i:s");
 
         // mendapatkan usia karyawan berdasarkan interval tanggal lahir dan current date
@@ -37,7 +78,7 @@ class Bootcamp03_model extends CI_Model
             'alamat' => $alamat,
             'telp' => $telp,
             'jabatan' => $jabatan,
-            'created_by' => $created_by,
+            'created_by' => $user,
             'created_time' => $created_time,
         );
 

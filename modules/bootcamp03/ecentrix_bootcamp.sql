@@ -40,7 +40,8 @@ insert  into `karyawan`(`nik`,`nama`,`tempat_lahir`,`tanggal_lahir`,`umur`,`alam
 ('12345','khairin','surabaya','2023-09-01','0','sidosermo indah IV/2 surabaya','083830466466','staff','afif','2023-09-15 10:22:14'),
 ('67890','hendri','malang','2020-03-02','3','sigura gura','081249234567','staff','hendri','2023-09-19 11:17:34'),
 ('712531','amy','jakarta','2012-04-30','11','jl ikan paus no 23','081256448754','supervisor','hendri','2023-09-20 04:41:23'),
-('76231','john','malang','2010-02-09','13','blimbing','081248663678','manager','hendri','2023-09-19 18:16:00');
+('76231','john','malang','2010-02-09','13','blimbing','081248663678','manager','hendri','2023-09-19 18:16:00'),
+('918723','maxx','surabaya','2010-02-10','13','surabaya barat','081267245271','staff','hendri','2023-09-20 02:51:53');
 
 /*Table structure for table `user` */
 

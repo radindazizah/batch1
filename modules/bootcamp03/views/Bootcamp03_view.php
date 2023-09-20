@@ -14,6 +14,8 @@
 
 <body>
     <div class="container">
+        <?php echo validation_errors(); ?>
+        
         <h1>Data Karyawan</h1>
 
         <?php
@@ -34,7 +36,7 @@
                 <h2 class="card-title">Tambah Data Karyawan</h2>
                 <div class="form-group">
                     <label for="nik">NIK</label>
-                    <input type="number" class="form-control" id="nik" name="nik" placeholder="NIK">
+                    <input type="number" class="form-control" id="nik" name="nik">
                 </div>
                 <div class="form-group">
                     <label for="nik">Nama</label>

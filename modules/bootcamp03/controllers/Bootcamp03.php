@@ -8,6 +8,7 @@ class Bootcamp03 extends CI_Controller
 	{
 		parent::__construct($securePage = false);
 		$this->load->model('Bootcamp03_model');
+		$this->load->library('form_validation');
 	}
 
 	public function index()
@@ -26,7 +27,16 @@ class Bootcamp03 extends CI_Controller
 
 	public function addKaryawan()
 	{
+		$rules = $this->Bootcamp03_model->rules();
 		$data = $this->Bootcamp03_model->addKaryawan();
-		redirect('bootcamp03/?id=' . $data['created_by'], $data);
+
+		$this->form_validation->set_rules($rules);
+		
+		if ($this->form_validation->run() == FALSE) {
+			echo "Form gagal";
+			echo validation_errors();
+		} else {
+			redirect('bootcamp03/?id=' . $data['created_by']);
+		}
 	}
 }

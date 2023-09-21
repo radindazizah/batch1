@@ -22,7 +22,7 @@ grid_selector.jqGrid({
 	mtype : "post",
 	datatype: "json",
 	height: 394,
-	colNames:['NIK','Nama','Tempat Lahir','Tanggal Lahir','Umur', 'Alamat', 'Telp', 'Jabatan', 'Created By', 'Created Time'],
+	colNames:['NIK','Nama','Tempat Lahir','Tanggal Lahir','Umur', 'Alamat', 'Telp', 'Jabatan', 'Created By', 'Created Time','Edit','Delete'],
 	colModel:[
 		{name: 'nik', width: 150, sortable: false },
 		{name: 'nama', width: 150, sortable: false, editable: true, editrules: {required: true} ,editoptions: {maxlength: 50} },
@@ -34,6 +34,17 @@ grid_selector.jqGrid({
 		{name: 'jabatan', width: 150, sortable: false, editable: true, editrules: {required: false}},
 		{name: 'created_by', width: 150, sorttype: false, editable: false },
 		{name: 'created_time', width: 150, sorttype: false, editable: false },
+		{name: 'edit', width: 50, sortable: false, formatter: function (cellValue, options, rowObject) {
+      return '<button class="edit-button" data-id="' + options.rowId + '">Edit</button>';
+			}
+		},
+		{name: 'delete',
+		width: 60,
+		sortable: false,
+		formatter: function (cellValue, options, rowObject) {
+			return '<button class="delete-button" data-id="' + options.rowId + '">Delete</button>';
+    }
+  },
 		
 	], 
 

@@ -175,7 +175,6 @@ span.onclick = function() {
 <script type="text/javascript">
 	var USER_ID='<?=$user?>';
 </script>
-<script src='<?=base_url()?>modules/bootcamp05/js/jquery-2.0.3.min.js'></script>
 <script src="<?=base_url()?>modules/bootcamp05/js/bootstrap.min.js"></script>
 <script src="<?=base_url()?>modules/bootcamp05/js/jquery-ui.js"></script>
 <script src="<?=base_url();?>modules/bootcamp05/js/jqGrid/jquery.jqGrid.js"></script>
@@ -184,10 +183,20 @@ span.onclick = function() {
 
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
+    <script>
     $(document).ready(function() {
-      $(".button-container button").on("click", function() {
-        $(this).css("background-color", "green");
+      var grid_selector = $("#userKaryawan");
+      grid_selector.on("click", ".edit-button", function () {
+        var rowId = $(this).data("id");
+        if (confirm("Are you sure you want to edit this item?")) {
+          console.log("Edit button clicked for row with ID: " + rowId);
+        }
+      });
+      grid_selector.on("click", ".delete-button", function () {
+        var rowId = $(this).data("id");
+        if (confirm("Are you sure you want to delete this item?")) {
+          console.log("Delete button clicked for row with ID: " + rowId);
+        }
       });
     });
   </script>

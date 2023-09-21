@@ -62,7 +62,7 @@ class Bootcamp06_model extends CI_Model
 			}
         }
 		
-		$select = array('a.nik','a.nama','a.tempat_lahir','a.tanggal_lahir','a.umur','a.alamat','a.telp','a.jabatan','b.full_name',
+		$select = array('a.nik','a.nama','a.tempat_lahir','a.tanggal_lahir','a.umur','a.alamat','a.telp','a.jabatan','a.created_by',
 						'a.created_time');
 		$this->db->from('karyawan a');
 		$this->db->join('user b','a.created_by=b.id');

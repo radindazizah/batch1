@@ -24,5 +24,14 @@ class Bootcamp01 extends CI_Controller {
 		echo $data;
 	}
 	
+	public function ajaxform()
+	{
+		$data['user']=$this->input->get_post('id');
+		$this->load->view('Ajaxform_view',$data);
+		
+	}
 	
+	function checkdata(){
+		echo $this->Bootcamp01_model->checkdata();
+	}
 }

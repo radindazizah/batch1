@@ -22,8 +22,12 @@ grid_selector.jqGrid({
 	mtype : "post",
 	datatype: "json",
 	height: 394,
-	colNames:['NIK','Nama','Tempat Lahir','Tanggal Lahir','Umur', 'Alamat', 'Telp', 'Jabatan', 'Created By', 'Created Time'],
+	colNames:['Actions', 'NIK','Nama','Tempat Lahir','Tanggal Lahir','Umur', 'Alamat', 'Telp', 'Jabatan', 'Created By', 'Created Time'],
 	colModel:[
+		{name: 'actions', width: 150, sorttype: false, editable: true, formatter: 'actions', formatoptions: {keys: false,
+																											editbutton: true,
+																											delbutton: true,
+																											editformbutton: false}},
 		{name: 'nik', width: 150, sortable: false },
 		{name: 'nama', width: 150, sortable: false, editable: true, editrules: {required: true} ,editoptions: {maxlength: 50} },
 		{name: 'tempat_lahir', width: 150, sortable: false, editable: true, editrules: {required: false}},
@@ -33,10 +37,9 @@ grid_selector.jqGrid({
 		{name: 'telp', width: 150, sortable: false, editable: true, editrules: {required: false}},
 		{name: 'jabatan', width: 150, sortable: false, editable: true, editrules: {required: false}},
 		{name: 'created_by', width: 150, sorttype: false, editable: false },
-		{name: 'created_time', width: 150, sorttype: false, editable: false },
-		
-	], 
-
+		{name: 'created_time', width: 150, sorttype: false, editable: false }
+	],
+	
 	shrinkToFit : false,
 	viewrecords : true,
 	rowNum:10,

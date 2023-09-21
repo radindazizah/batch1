@@ -31,3 +31,7 @@ body {
 .error {
     color: red;
 }
+
+#dialog-confirm {
+    display: none;
+}

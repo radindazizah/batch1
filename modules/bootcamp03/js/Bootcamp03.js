@@ -73,18 +73,9 @@ function getSelectedRow() {
 	var selRowId = grid_selector.jqGrid('getGridParam', 'selrow');
 	var celValue = grid_selector.jqGrid('getCell', selRowId, 'nik');
 
-	// if (selRowId) {
-	// 	$("#delButton").attr("data-toggle", "modal");
-	// 	$("#delButton").attr("data-target", "#exampleModalLong");
-	// } else {
-	// 	alert('NO ROW SELECTED');
-	// }
-
 	if (selRowId) {
-		console.log("Selected row primary key is: " + celValue);
-		// $( "#dialog-confirm" ).append( "<p>Test</p>" );
 		$("#dialog-confirm").html(
-			'<p class="modal-delete"><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Data with nik ' + celValue + 'will be permanently deleted and cannot be recovered. Are you sure?</p>'
+			'<p class="modal-delete"><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Data with nik ' + celValue + ' will be permanently deleted and cannot be recovered. Are you sure?</p>'
 		);
 		$("#dialog-confirm").dialog({
 			resizable: false,
@@ -92,8 +83,8 @@ function getSelectedRow() {
 			width: 400,
 			modal: true,
 			buttons: {
-				"Delete all items": function () {
-					window.location = "www.example.com/index.php?id=" + celValue;
+				"Delete karyawan": function () {
+					window.location = "delKaryawan/" + celValue;
 					$(this).dialog("close");
 				},
 				Cancel: function () {
@@ -106,21 +97,3 @@ function getSelectedRow() {
 		alert("No rows are selected");
 	}
 }
-
-// Jquery UI Modal
-// $(function () {
-// 	$("#dialog-confirm").dialog({
-// 		resizable: false,
-// 		height: "auto",
-// 		width: 800,
-// 		modal: true,
-// 		buttons: {
-// 			"Delete all items": function () {
-// 				$(this).dialog("close");
-// 			},
-// 			Cancel: function () {
-// 				$(this).dialog("close");
-// 			}
-// 		}
-// 	});
-// });

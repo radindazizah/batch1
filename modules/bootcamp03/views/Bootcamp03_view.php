@@ -24,11 +24,10 @@
             <!-- <button type="button" id="delButton" class="btn btn-danger" onclick="getSelectedRow()">
                 Launch demo modal
             </button> -->
-            <input type="button" class="btn btn-primary" value="Get Selected Row" onclick="getSelectedRow()" />
 
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Add</button>
             <button type="button" class="btn btn-warning">Edit</button>
-            <button type="button" class="btn btn-danger">Delete</button>
+            <input type="button" class="btn btn-danger" value="Delete" onclick="getSelectedRow()" />
         </div>
 
         <table id="userKaryawan"></table>

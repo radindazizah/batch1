@@ -96,6 +96,6 @@ class Bootcamp03_model extends CI_Model
 
     public function delKaryawan($where)
     {
-        $this->db->delete('mytable', $where);
+        $this->db->delete('karyawan', $where);
     }
 }

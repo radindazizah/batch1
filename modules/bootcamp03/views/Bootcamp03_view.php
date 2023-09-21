@@ -20,99 +20,90 @@
         echo "<p>Username : " . $user . "</p>";
         ?>
 
-        <table id="userKaryawan"></table>
-        <div id="userKaryawanPager"></div>
-
         <div class="button-wrapper">
             <!-- <button type="button" id="delButton" class="btn btn-danger" onclick="getSelectedRow()">
                 Launch demo modal
             </button> -->
-            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-                Launch demo modal
-            </button> -->
             <input type="button" class="btn btn-primary" value="Get Selected Row" onclick="getSelectedRow()" />
-            <button type="button" class="btn btn-primary" id="show-add">Add</button>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Add</button>
             <button type="button" class="btn btn-warning">Edit</button>
             <button type="button" class="btn btn-danger">Delete</button>
         </div>
 
-        <div class="form-wrapper">
-            <form class="add-form-wrapper" action="<?php echo base_url() ?>index.php/bootcamp03/addKaryawan/?id=<?php echo $user ?>" method="POST">
-                <h2 class="card-title">Tambah Data Karyawan</h2>
-                <div class="form-group">
-                    <label for="nik">NIK</label>
-                    <?php echo form_error('nik'); ?>
-                    <input type="number" class="form-control" id="nik" name="nik" placeholder="Nomor NIK">
-                </div>
-                <div class="form-group">
-                    <label for="nik">Nama</label>
-                    <?php echo form_error('nama'); ?>
-                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
-                </div>
-                <div class="form-group">
-                    <label for="tempat-lahir">Tempat Lahir</label>
-                    <?php echo form_error('tempat_lahir'); ?>
-                    <input type="text" class="form-control" id="tempat-lahir" name="tempat_lahir" placeholder="Tempat Lahir">
-                </div>
-                <div class="form-group">
-                    <label for="tanggal-lahir">Tanggal Lahir</label>
-                    <?php echo form_error('tanggal_lahir'); ?>
-                    <input type="date" class="form-control" id="tanggal-lahir" name="tanggal_lahir" placeholder="Tanggal Lahir">
-                </div>
-                <div class="form-group">
-                    <label for="alamat">Alamat</label>
-                    <?php echo form_error('alamat'); ?>
-                    <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Alamat"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="telp">Telp</label>
-                    <?php echo form_error('telp'); ?>
-                    <input type="text" class="form-control" id="telp" name="telp" placeholder="No. Telepon">
-                </div>
-                <div class="form-group">
-                    <label for="jabatan">Jabatan</label>
-                    <?php echo form_error('jabatan'); ?>
-                    <select class="form-control" id="jabatan" name="jabatan">
-                        <option>manager</option>
-                        <option>staff</option>
-                        <option>supervisor</option>
-                    </select>
-                </div>
-                <input type="submit" class="btn btn-primary btn-submit" name="submit" value="Submit"></input>
-            </form>
-        </div>
-
-        <!-- Jquery UI Modal -->
-        <div id="dialog-confirm" title="Are you sure?">
-            <p class="modal-delete"><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
-        </div>
+        <table id="userKaryawan"></table>
+        <div id="userKaryawanPager"></div>
 
         <!-- Bootstrap Modal -->
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <h2 class="modal-title" id="exampleModalLongTitle">Tambah Karyawan</h2>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <!-- Modal Content  -->
-                    <form action="#" method="POST">
+                    <form action="<?php echo base_url() ?>index.php/bootcamp03/addKaryawan/?id=<?php echo $user ?>" method="POST">
                         <div class="modal-body">
-                            <label for="nik">NIK</label>
-                            <?php echo form_error('nik'); ?>
-                            <input type="number" class="form-control" id="nik" name="nik" placeholder="Nomor NIK">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, consequatur, voluptatem ex quasi ipsum quia necessitatibus totam, sed deleniti similique veritatis veniam! Sed quas doloremque quia veritatis dignissimos voluptas sunt!</p>
+                            <div class="form-group">
+                                <label for="nik">NIK</label>
+                                <?php echo form_error('nik'); ?>
+                                <input type="number" class="form-control" id="nik" name="nik" placeholder="Nomor NIK">
+                            </div>
+                            <div class="form-group">
+                                <label for="nik">Nama</label>
+                                <?php echo form_error('nama'); ?>
+                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
+                            </div>
+                            <div class="form-group">
+                                <label for="tempat-lahir">Tempat Lahir</label>
+                                <?php echo form_error('tempat_lahir'); ?>
+                                <input type="text" class="form-control" id="tempat-lahir" name="tempat_lahir" placeholder="Tempat Lahir">
+                            </div>
+                            <div class="form-group">
+                                <label for="tanggal-lahir">Tanggal Lahir</label>
+                                <?php echo form_error('tanggal_lahir'); ?>
+                                <input type="date" class="form-control" id="tanggal-lahir" name="tanggal_lahir" placeholder="Tanggal Lahir">
+                            </div>
+                            <div class="form-group">
+                                <label for="alamat">Alamat</label>
+                                <?php echo form_error('alamat'); ?>
+                                <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Alamat"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="telp">Telp</label>
+                                <?php echo form_error('telp'); ?>
+                                <input type="text" class="form-control" id="telp" name="telp" placeholder="No. Telepon">
+                            </div>
+                            <div class="form-group">
+                                <label for="jabatan">Jabatan</label>
+                                <?php echo form_error('jabatan'); ?>
+                                <select class="form-control" id="jabatan" name="jabatan">
+                                    <option>manager</option>
+                                    <option>staff</option>
+                                    <option>supervisor</option>
+                                </select>
+                            </div>
+                            <!-- <input type="submit" class="btn btn-primary btn-submit" name="submit" value="Submit"></input> -->
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <input type="submit" class="btn btn-primary btn-submit" name="submit" value="Submit"></input>
+                            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        <!-- End of Bootstrap Modal -->
+
+        <!-- Jquery UI Modal -->
+        <div id="dialog-confirm" title="Are you sure?">
+            <p class="modal-delete"><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
+        </div>
+        <!-- End of Jquery UI Modal -->
 
     </div>
 

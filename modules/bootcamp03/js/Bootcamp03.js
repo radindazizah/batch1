@@ -2,12 +2,6 @@ var select = false;
 var grid_selector = $("#userKaryawan");
 var pager_selector = "#userKaryawanPager";
 
-$(".add-form-wrapper").hide();
-
-$("#show-add").click(function () {
-	$(".add-form-wrapper").toggle();
-});
-
 grid_selector.jqGrid({
 	jsonReader: {
 		root: "rows",

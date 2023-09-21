@@ -29,6 +29,7 @@ class Bootcamp03 extends CI_Controller
 
 	public function addKaryawan()
 	{
+		$data['user'] = $this->input->get_post('id');
 		// store currrent user into session
 		$user_session = $this->session->userdata('user_session');
 

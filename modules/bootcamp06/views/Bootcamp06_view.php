@@ -10,6 +10,11 @@
 <?php
 echo "username : ".$user;
 ?>
+<br>
+<div class="text-center">
+	<button type="button" class="btn btn-primary btn-lg">Add Data</button>
+</div>
+<br>
 <table id="userKaryawan"></table>
 <div id="userKaryawanPager"></div>
 <script type="text/javascript">

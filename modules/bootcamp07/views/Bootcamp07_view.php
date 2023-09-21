@@ -25,7 +25,7 @@
 	  margin: auto;
 	  padding: 20px;
 	  border: 1px solid #888;
-	  width: 80%;
+	  width: 70%;
 	}
 	.close {
 	  color: #aaaaaa;
@@ -51,7 +51,7 @@ echo "username : ".$user;
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
-    <form id="form-input">
+    <form id="form-input" action="<?php echo site_url('bootcamp07/addData') ?>" method="post" enctype="multipart/form-data">
 	<div class="form-group">
 	<label for="nik">NIK</label>
     <input type="text" class="form-control" id="nik" name="nik" placeholder="Input NIK" required>
@@ -61,12 +61,12 @@ echo "username : ".$user;
     <input type="text" class="form-control" id="nama" name="nama" placeholder="Input Nama" required>
     </div>
     <div class="form-group">
-    <label for="tempatlahir">Tempat Lahir</label>
-    <input type="text" class="form-control" id="tempatlahir" name="tempatlahir" placeholder="Input Tempat Lahir" required>
+    <label for="tempat_lahir">Tempat Lahir</label>
+    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Input Tempat Lahir" required>
     </div>
 	<div class="form-group">
-    <label for="tanggallahir">Tanggal Lahir</label>
-    <input type="date" class="form-control" id="tanggallahir" name="tanggallahir" placeholder="Input Tanggal Lahir" required>
+    <label for="tanggal_lahir">Tanggal Lahir</label>
+    <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="Input Tanggal Lahir" required>
     </div>
 	<div class="form-group">
     <label for="umur">Umur</label>
@@ -82,14 +82,18 @@ echo "username : ".$user;
     </div>
 	<div class="form-group">
 	<label for="jabatan">Jabatan</label>
-    <select name="jabatan" class="form-control" id="jabatan" required>
+    <select  type="text" name="jabatan" class="form-control" id="jabatan" required>
     <option value="staff">Staff</option>
     <option value="supervisor">Supervisor</option>
 	<option value="manager">Manager</option>
     </select>
     </div>    
 	<div class="form-group">
-    <label for="createtime">Created Time</label>
+	<label for="created_by">Created By</label>
+    <input type="text" class="form-control" id="created_by" name="created_by" placeholder="Input Nama Karyawan" required>
+    </div>
+	<div class="form-group">
+    <label for="created_time">Created Time</label>
     <input type="datetime-local" class="form-control" id="created_time" name="created_time" required>
     </div>
 	<script>
@@ -105,6 +109,12 @@ echo "username : ".$user;
     </form>
   </div>
 </div>
+
+<table id="userKaryawan"></table>
+<div id="userKaryawanPager"></div>
+<script type="text/javascript">
+	var USER_ID='<?=$user?>';
+</script>
 <script>
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("addbtn");
@@ -121,15 +131,27 @@ window.onclick = function(event) {
   }
 }
 </script>
-<table id="userKaryawan"></table>
-<div id="userKaryawanPager"></div>
-<script type="text/javascript">
-	var USER_ID='<?=$user?>';
-</script>
 <script src='<?=base_url()?>modules/bootcamp07/js/jquery-2.0.3.min.js'></script>
 <script src="<?=base_url()?>modules/bootcamp07/js/bootstrap.min.js"></script>
 <script src="<?=base_url()?>modules/bootcamp07/js/jquery-ui.js"></script>
 <script src="<?=base_url();?>modules/bootcamp07/js/jqGrid/jquery.jqGrid.js"></script>
 <script src="<?=base_url();?>modules/bootcamp07/js/jqGrid/i18n/grid.locale-en.js"></script>
 <script src="<?php echo base_url();?>modules/bootcamp07/js/bootcamp07.js?v=<?=rand(0,20);?>"></script>
+<script>
+    $(document).ready(function() {
+      var grid_selector = $("#userKaryawan");
+      grid_selector.on("click", ".edit-button", function () {
+        var rowId = $(this).data("id");
+        if (confirm("Are you sure you want to edit this item?")) {
+          console.log("Edit button clicked for row with ID: " + rowId);
+        }
+      });
+      grid_selector.on("click", ".delete-button", function () {
+        var rowId = $(this).data("id");
+        if (confirm("Are you sure you want to delete this item?")) {
+          console.log("Delete button clicked for row with ID: " + rowId);
+        }
+      });
+    });
+</script>
 </body>

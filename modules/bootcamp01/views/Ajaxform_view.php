@@ -10,18 +10,20 @@
 <?php
 echo "username : ".$user;
 ?>
-<a href="ajaxform/?id=<?=$user?>" style="position:relative;float:right;margin-right:20px;">ajax form</a>
-<table id="userKaryawan"></table>
-<div id="userKaryawanPager"></div>
+<a href="<?=base_url()?>index.php/bootcamp01/?id=<?=$user?>" style="position:relative;float:right;margin-right:20px;">jqgrid</a>
+
+<form name="formcheck" id="formcheck">
+<input type="text" name="nik" id="nik">&nbsp;<input type="button" name="btncheck" id="btncheck" value="Check">
+</form>
+
 <script type="text/javascript">
 	var USER_ID='<?=$user?>';
 	var BASE_URL='<?=base_url()?>';
+	var SITE_URL='<?=site_url()?>';
 </script>
 <script src='<?=base_url()?>modules/bootcamp01/js/jquery-2.0.3.min.js'></script>
 <script src="<?=base_url()?>modules/bootcamp01/js/bootstrap.min.js"></script>
 <script src="<?=base_url()?>modules/bootcamp01/js/jquery-ui.js"></script>
-<script src="<?=base_url();?>modules/bootcamp01/js/jqGrid/jquery.jqGrid.js"></script>
-<script src="<?=base_url();?>modules/bootcamp01/js/jqGrid/i18n/grid.locale-en.js"></script>
-<script src="<?php echo base_url();?>modules/bootcamp01/js/Bootcamp01.js?v=<?=rand(0,20);?>"></script>
+<script src="<?=base_url()?>modules/bootcamp01/js/Ajaxform.js"></script>
 </body>
 </body>

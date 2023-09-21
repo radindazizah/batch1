@@ -72,6 +72,8 @@ class Bootcamp01_model extends CI_Model
 		
 	    $rResult = $this->db->get();
         // Data set length after filtering
+		
+		//echo $this->db->last_query();
         $this->db->select('FOUND_ROWS() AS found_rows');
 		
         $iFilteredTotal = $this->db->get()->row()->found_rows;
@@ -103,6 +105,21 @@ class Bootcamp01_model extends CI_Model
 		
         echo json_encode($output); 
 		
+	}
+	
+	function checkdata(){
+		$this->db->select('*');
+		$this->db->from('karyawan');
+		$this->db->where('nik',$this->input->post('nik'));
+		$result=$this->db->get();
+		//echo $this->db->last_query();
+		if($result->num_rows()>0){
+			$data=array('status'=>'success','message'=>'data sudah tersedia');
+		}else{
+			$data=array('status'=>'error','message'=>'data tidak ditemukan');
+		}
+		
+		return json_encode($data);
 	}
 
 

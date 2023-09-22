@@ -81,7 +81,7 @@ class Bootcamp03_model extends CI_Model
             'created_by' => $user,
             'created_time' => $created_time,
         );
-        
+
         $query = $this->db->get_where('karyawan', array('nik' => $data['nik']));
 
         if ($query->num_rows() > 0) {
@@ -92,52 +92,79 @@ class Bootcamp03_model extends CI_Model
         }
     }
 
-    public function nikCheck() {
+    public function nikCheck()
+    {
         $nik = $this->input->get_post('nik');
         $query = $this->db->get_where('karyawan', array('nik' => $nik));
-        
-        if($query->num_rows()>0){
-			$data=array('status'=>'success','message'=>'NIK ' .$nik. ' sudah tersedia / dipakai');
-		}else{
-			$data=array('status'=>'error','message'=>'NIK' .$nik. 'tidak ditemukan');
-		}
+
+        if ($query->num_rows() > 0) {
+            $data = array('status' => 'success', 'message' => 'NIK ' . $nik . ' sudah tersedia / dipakai');
+        } else {
+            $data = array('status' => 'error', 'message' => 'NIK' . $nik . 'tidak ditemukan');
+        }
 
         return json_encode($data);
     }
 
-    public function editKaryawan($nik) {
+    public function editKaryawan($nik)
+    {
         $this->db->where('nik', $nik);
         $query = $this->db->get('karyawan');
 
-        if($query->num_rows()>0){
-			$val=array();
-			foreach($query->result_array() as $row){
-				$val[]=$row;
-			}
-			$data=array('status'=>'success','message'=>'data sudah tersedia','data'=>$val);
-		}else{
-			$data=array('status'=>'error','message'=>'data tidak ditemukan');
-		}
+        if ($query->num_rows() > 0) {
+            $val = array();
+            foreach ($query->result_array() as $row) {
+                $val[] = $row;
+            }
+            $data = array('status' => 'success', 'message' => 'data sudah tersedia', 'data' => $val);
+        } else {
+            $data = array('status' => 'error', 'message' => 'data tidak ditemukan');
+        }
 
         return json_encode($data);
+    }
 
-        // if($query->num_rows()>0){
-		// 	$data=array('status'=>'success','message'=>'Data ada dalam database', 'name' => $this->$query->name);
-		// }else{
-		// 	$data=array('status'=>'error','message'=>'Data tidak ditemukan dalam database');
-		// }
+    public function saveKaryawan()
+    {
+        $nik = $this->input->get_post('nik');
+        $nama = $this->input->get_post('nama');
+        $tempatLahir = $this->input->get_post('tempatLahir');
+        $tanggalLahir = $this->input->get_post('tanggalLahir');
+        $alamat = $this->input->get_post('alamat');
+        $telp = $this->input->get_post('telp');
+        $jabatan = $this->input->get_post('jabatan');
+        $user = $this->session->userdata('user_session');
+        $created_time = date("Y-m-d h:i:s");
 
-        // if($query->num_rows()>0){
-		// 	$data=array('status'=>'success','message'=>'Data ada dalam database', 'name' => $query->name);
-		// }else{
-		// 	$data=array('status'=>'error','message'=>'Data tidak ditemukan dalam database');
-		// }
+        // mendapatkan usia karyawan berdasarkan interval tanggal lahir dan current date
+        $birth_date = date_create($tanggalLahir);
+        $current_date = date_create(date("Y-m-d"));
+        $interval = date_diff($birth_date, $current_date);
+        $umur = $interval->format('%y'); // value usia
 
-        // if($query){
-        //     $data['fname'] = $result->first_name;
-        //     $data['lname'] = $result->last_name;
-        //     $this->load->view('members', $data);
-        // }
+        $data = array(
+            'nik' => $nik,
+            'nama' => $nama,
+            'tempat_lahir' => $tempatLahir,
+            'tanggal_lahir' => $tanggalLahir,
+            'umur' => $umur,
+            'alamat' => $alamat,
+            'telp' => $telp,
+            'jabatan' => $jabatan,
+            'created_by' => $user,
+            'created_time' => $created_time,
+        );
+
+        $this->db->where('nik', $nik);
+        $this->db->update('karyawan', $data);
+
+        if ( $this->db->affected_rows() > 0) {
+            $data = array('status' => 'success', 'message' => 'Data karyawan berhasil di edit', 'user' => $this->session->userdata('user_session'),'data' => $this->db->affected_rows());
+        } else {
+            $data = array('status' => 'error', 'message' => 'Edit Data Karyawan Gagal');
+        }
+
+        return json_encode($data);
     }
 
     public function delKaryawan($where)

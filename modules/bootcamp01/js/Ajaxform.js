@@ -10,6 +10,14 @@ $("#btncheck").click(function(){
 			
 			alert(val.message);
 			
+			var tampil="";
+			$("#tampilan_data").empty();
+			
+			$.each(val.data, function(val,text){
+					tampil+=text.nama+" - "+text.alamat+"<br>";
+			});
+			
+			$("#tampilan_data").append(tampil);
 					
 		},
 		error:function(){

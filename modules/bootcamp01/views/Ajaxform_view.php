@@ -15,6 +15,7 @@ echo "username : ".$user;
 <form name="formcheck" id="formcheck">
 <input type="text" name="nik" id="nik">&nbsp;<input type="button" name="btncheck" id="btncheck" value="Check">
 </form>
+<div id="tampilan_data"></div>
 
 <script type="text/javascript">
 	var USER_ID='<?=$user?>';

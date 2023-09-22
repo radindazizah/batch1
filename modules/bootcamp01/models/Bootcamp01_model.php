@@ -113,8 +113,13 @@ class Bootcamp01_model extends CI_Model
 		$this->db->where('nik',$this->input->post('nik'));
 		$result=$this->db->get();
 		//echo $this->db->last_query();
+		
 		if($result->num_rows()>0){
-			$data=array('status'=>'success','message'=>'data sudah tersedia');
+			$val=array();
+			foreach($result->result_array() as $row){
+				$val[]=$row;
+			}
+			$data=array('status'=>'success','message'=>'data sudah tersedia','data'=>$val);
 		}else{
 			$data=array('status'=>'error','message'=>'data tidak ditemukan');
 		}

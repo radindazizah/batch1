@@ -21,25 +21,25 @@ class Bootcamp03_model extends CI_Model
                 'rules' => 'required'
             ],
             [
-				'field' => 'tanggal_lahir', 
-				'label' => 'Tanggal Lahir', 
-				'rules' => 'required'
-			],
+                'field' => 'tanggal_lahir',
+                'label' => 'Tanggal Lahir',
+                'rules' => 'required'
+            ],
             [
-				'field' => 'alamat', 
-				'label' => 'alamat', 
-				'rules' => 'required|max_length[100]'
-			],
+                'field' => 'alamat',
+                'label' => 'alamat',
+                'rules' => 'required|max_length[100]'
+            ],
             [
-				'field' => 'telp', 
-				'label' => 'telp', 
-				'rules' => 'required|max_length[15]'
-			],
+                'field' => 'telp',
+                'label' => 'telp',
+                'rules' => 'required|max_length[15]'
+            ],
             [
-				'field' => 'jabatan', 
-				'label' => 'jabatan', 
-				'rules' => 'required'
-			],
+                'field' => 'jabatan',
+                'label' => 'jabatan',
+                'rules' => 'required'
+            ],
         ];
     }
 
@@ -81,7 +81,21 @@ class Bootcamp03_model extends CI_Model
             'created_by' => $user,
             'created_time' => $created_time,
         );
+        
+        $query = $this->db->get_where('karyawan', array('nik' => $data['nik']));
 
-        return $this->db->insert('karyawan', $data);
+        if ($query->num_rows() > 0) {
+            echo "<script> alert('NIK SUDAH DIGUNAKAN'); </script>";
+            redirect(base_url() . 'index.php/bootcamp03/?id=' . $data['created_by']);
+
+            // echo "<script> alert('Nik sudah digunakan'); window.location.href='index.php/bootcamp03/?id=' . $user; </script>";
+        } else {
+            return $this->db->insert('karyawan', $data);
+        }
+    }
+
+    public function delKaryawan($where)
+    {
+        $this->db->delete('karyawan', $where);
     }
 }

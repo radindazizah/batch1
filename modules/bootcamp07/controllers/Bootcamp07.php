@@ -8,13 +8,11 @@ class Bootcamp07 extends CI_Controller {
 		parent::__construct($securePage=false);
 		$this->load->model('bootcamp07_model');
 		
-		
 	}
 
 	public function index()
 	{
 		$data['user']=$this->input->get_post('id');
-
 		$this->load->view('bootcamp07_view',$data);
 		
 	}
@@ -25,7 +23,7 @@ class Bootcamp07 extends CI_Controller {
 	}
 	
 	public function addData(){
-		$data['user']=$this->input->get_post('id');
-		$this->load->view('bootcamp07_add');
+		$this->bootcamp07_model->save();
+		redirect('bootcamp07/?id=anggi');
 	}
 }

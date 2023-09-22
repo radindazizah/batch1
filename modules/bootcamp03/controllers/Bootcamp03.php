@@ -51,6 +51,10 @@ class Bootcamp03 extends CI_Controller
 		echo $this->Bootcamp03_model->nikCheck();
 	}
 
+	public function editKaryawan($nik) {
+		echo $this->Bootcamp03_model->editKaryawan($nik);
+	}
+
 	public function delKaryawan($nik)
 	{
 		$where = array('nik' => $nik);

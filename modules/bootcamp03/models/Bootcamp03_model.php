@@ -97,12 +97,47 @@ class Bootcamp03_model extends CI_Model
         $query = $this->db->get_where('karyawan', array('nik' => $nik));
         
         if($query->num_rows()>0){
-			$data=array('status'=>'success','message'=>'NIK sudah tersedia / dipakai');
+			$data=array('status'=>'success','message'=>'NIK ' .$nik. ' sudah tersedia / dipakai');
 		}else{
-			$data=array('status'=>'error','message'=>'NIK tidak ditemukan');
+			$data=array('status'=>'error','message'=>'NIK' .$nik. 'tidak ditemukan');
 		}
 
         return json_encode($data);
+    }
+
+    public function editKaryawan($nik) {
+        $this->db->where('nik', $nik);
+        $query = $this->db->get('karyawan');
+
+        if($query->num_rows()>0){
+			$val=array();
+			foreach($query->result_array() as $row){
+				$val[]=$row;
+			}
+			$data=array('status'=>'success','message'=>'data sudah tersedia','data'=>$val);
+		}else{
+			$data=array('status'=>'error','message'=>'data tidak ditemukan');
+		}
+
+        return json_encode($data);
+
+        // if($query->num_rows()>0){
+		// 	$data=array('status'=>'success','message'=>'Data ada dalam database', 'name' => $this->$query->name);
+		// }else{
+		// 	$data=array('status'=>'error','message'=>'Data tidak ditemukan dalam database');
+		// }
+
+        // if($query->num_rows()>0){
+		// 	$data=array('status'=>'success','message'=>'Data ada dalam database', 'name' => $query->name);
+		// }else{
+		// 	$data=array('status'=>'error','message'=>'Data tidak ditemukan dalam database');
+		// }
+
+        // if($query){
+        //     $data['fname'] = $result->first_name;
+        //     $data['lname'] = $result->last_name;
+        //     $this->load->view('members', $data);
+        // }
     }
 
     public function delKaryawan($where)

@@ -4,7 +4,6 @@
 <link href="<?=base_url()?>modules/bootcamp05/css/bootstrap.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="<?=base_url()?>modules/bootcamp05/css/jquery-ui.css" />
 <link rel="stylesheet" href="<?=base_url()?>modules/bootcamp05/css/ui.jqgrid.css" />
-<link rel="stylesheet" href="<?= base_url() ?>modules/bootcamp05/css/style.css" />
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -72,9 +71,9 @@ echo "username : ".$user;
   <div class="modal-content">
     <span class="close">&times;</span>
     <h2>Tambah Data</h2>
-    <form id="addDataForm">
-      <div class="form-group">
-        <label for="nik">NIK:</label>
+      <form id="form-input" action="<?php echo site_url('Bootcamp05/AddData') ?>" method="post" enctype="multipart/form-data">
+       <div class="form-group"> 
+		<label for="nik">NIK:</label>
         <input type="text" id="nik" name="nik" class="form-control" placeholder="Masukkan NIK" required>
       </div>
       
@@ -116,11 +115,12 @@ echo "username : ".$user;
           <option value="Option 3">Supervisor</option>
         </select>
       </div>
-      
-      <div class="form-group">
-        <label for="full_name">Full Name:</label>
-        <input type="text" id="full_name" name="full_name" class="form-control" placeholder="Masukkan Nama lengkap"required>
-      </div>
+	  
+	  <div class="form-group">
+	  <label for="created_by">User</label>
+		<input type="text" id="created_by" name="created_by" class="form-control" placeholder="Input Nama User" required>
+	</div>
+
       
       <div class="form-group">
         <label for="created_time">Created Time:</label>
@@ -175,14 +175,13 @@ span.onclick = function() {
 <script type="text/javascript">
 	var USER_ID='<?=$user?>';
 </script>
+<script src='<?=base_url()?>modules/bootcamp07/js/jquery-2.0.3.min.js'></script>
 <script src="<?=base_url()?>modules/bootcamp05/js/bootstrap.min.js"></script>
 <script src="<?=base_url()?>modules/bootcamp05/js/jquery-ui.js"></script>
 <script src="<?=base_url();?>modules/bootcamp05/js/jqGrid/jquery.jqGrid.js"></script>
 <script src="<?=base_url();?>modules/bootcamp05/js/jqGrid/i18n/grid.locale-en.js"></script>
 <script src="<?php echo base_url();?>modules/bootcamp05/js/Bootcamp05.js?v=<?=rand(0,20);?>"></script>
 
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
     $(document).ready(function() {
       var grid_selector = $("#userKaryawan");

@@ -24,5 +24,9 @@ class Bootcamp05 extends CI_Controller {
 		echo $data;
 	}
 	
+	public function AddData(){
+		$this->Bootcamp05_model->save();
+		redirect('Bootcamp05/?id=bagas');
+	}
 	
 }

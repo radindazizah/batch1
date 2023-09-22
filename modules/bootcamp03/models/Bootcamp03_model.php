@@ -87,11 +87,22 @@ class Bootcamp03_model extends CI_Model
         if ($query->num_rows() > 0) {
             echo "<script> alert('NIK SUDAH DIGUNAKAN'); </script>";
             redirect(base_url() . 'index.php/bootcamp03/?id=' . $data['created_by']);
-
-            // echo "<script> alert('Nik sudah digunakan'); window.location.href='index.php/bootcamp03/?id=' . $user; </script>";
         } else {
             return $this->db->insert('karyawan', $data);
         }
+    }
+
+    public function nikCheck() {
+        $nik = $this->input->get_post('nik');
+        $query = $this->db->get_where('karyawan', array('nik' => $nik));
+        
+        if($query->num_rows()>0){
+			$data=array('status'=>'success','message'=>'NIK sudah tersedia / dipakai');
+		}else{
+			$data=array('status'=>'error','message'=>'NIK tidak ditemukan');
+		}
+
+        return json_encode($data);
     }
 
     public function delKaryawan($where)

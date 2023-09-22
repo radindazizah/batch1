@@ -30,8 +30,6 @@ class Bootcamp03 extends CI_Controller
 	public function addKaryawan()
 	{
 		$data['user'] = $this->input->get_post('id');
-		// store currrent user into session
-		$user_session = $this->session->userdata('user_session');
 
 		// form validation
 		$rules = $this->Bootcamp03_model->rules();
@@ -44,15 +42,19 @@ class Bootcamp03 extends CI_Controller
 			$this->load->view('Bootcamp03_view', $data);
 		} else {
 			$data = $this->Bootcamp03_model->addKaryawan();
-			redirect('bootcamp03/?id=' . $user_session);
+			redirect('bootcamp03/?id=' . $this->session->userdata('user_session'));
 		}
 	}
 
-	public function delKaryawan($nik) {
-		$user_session = $this->session->userdata('user_session');
+	public function nikCheck()
+	{
+		echo $this->Bootcamp03_model->nikCheck();
+	}
 
+	public function delKaryawan($nik)
+	{
 		$where = array('nik' => $nik);
 		$this->Bootcamp03_model->delKaryawan($where);
-		redirect('bootcamp03/?id=' . $user_session);
+		redirect('bootcamp03/?id=' . $this->session->userdata('user_session'));
 	}
 }

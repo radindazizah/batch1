@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="<?= base_url() ?>modules/bootcamp03/css/jquery-ui.css" />
     <link rel="stylesheet" href="<?= base_url() ?>modules/bootcamp03/css/ui.jqgrid.css" />
     <link rel="stylesheet" href="<?= base_url() ?>modules/bootcamp03/css/style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
 <body>
@@ -21,10 +20,6 @@
         ?>
 
         <div class="button-wrapper">
-            <!-- <button type="button" id="delButton" class="btn btn-danger" onclick="getSelectedRow()">
-                Launch demo modal
-            </button> -->
-
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Add</button>
             <button type="button" class="btn btn-warning">Edit</button>
             <input type="button" class="btn btn-danger" value="Delete" onclick="getSelectedRow()" />
@@ -33,7 +28,7 @@
         <table id="userKaryawan"></table>
         <div id="userKaryawanPager"></div>
 
-        <!-- Bootstrap Modal -->
+        <!-- Add Karyawan Bootstrap Modal -->
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -49,7 +44,8 @@
                             <div class="form-group">
                                 <label for="nik">NIK</label>
                                 <?php echo form_error('nik'); ?>
-                                <input type="number" class="form-control" id="nik" name="nik" placeholder="Nomor NIK">
+                                <input type="number" class="form-control" id="nik" name="nik" placeholder="Nomor NIK"> <br>
+                                <input type="button" id="nikcheck" class="btn btn-default" value="Check NIK">
                             </div>
                             <div class="form-group">
                                 <label for="nik">Nama</label>
@@ -85,18 +81,16 @@
                                     <option>supervisor</option>
                                 </select>
                             </div>
-                            <!-- <input type="submit" class="btn btn-primary btn-submit" name="submit" value="Submit"></input> -->
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                             <input type="submit" class="btn btn-primary btn-submit" name="submit" value="Submit"></input>
-                            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <!-- End of Bootstrap Modal -->
+        <!-- End of Add Karyawan Bootstrap Modal -->
 
         <!-- Jquery UI Modal -->
         <div id="dialog-confirm" title="Are you sure?">
@@ -108,6 +102,8 @@
 
     <script type="text/javascript">
         var USER_ID = '<?= $user ?>';
+        var BASE_URL = '<?= base_url() ?>';
+        var SITE_URL = '<?= site_url() ?>';
     </script>
 
     <script src='<?= base_url() ?>modules/bootcamp03/js/jquery-2.0.3.min.js'></script>
@@ -116,6 +112,7 @@
     <script src="<?= base_url(); ?>modules/bootcamp03/js/jqGrid/jquery.jqGrid.js"></script>
     <script src="<?= base_url(); ?>modules/bootcamp03/js/jqGrid/i18n/grid.locale-en.js"></script>
     <script src="<?php echo base_url(); ?>modules/bootcamp03/js/Bootcamp03.js?v=<?= rand(0, 20); ?>"></script>
+    <script src="<?= base_url() ?>modules/bootcamp03/js/Ajaxform.js"></script>
 </body>
 
 </html>

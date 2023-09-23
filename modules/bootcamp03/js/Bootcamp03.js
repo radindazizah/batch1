@@ -68,32 +68,3 @@ grid_selector.jqGrid({
 	autowidth: true
 
 });
-
-function getSelectedRow() {
-	var selRowId = grid_selector.jqGrid('getGridParam', 'selrow');
-	var celValue = grid_selector.jqGrid('getCell', selRowId, 'nik');
-
-	if (selRowId) {
-		$("#dialog-confirm").html(
-			'<p class="modal-delete"><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Data with nik ' + celValue + ' will be permanently deleted and cannot be recovered. Are you sure?</p>'
-		);
-		$("#dialog-confirm").dialog({
-			resizable: false,
-			height: "auto",
-			width: 400,
-			modal: true,
-			buttons: {
-				"Delete karyawan": function () {
-					window.location = "delKaryawan/" + celValue;
-					$(this).dialog("close");
-				},
-				Cancel: function () {
-					$(this).dialog("close");
-				}
-			}
-		});
-	}
-	else {
-		alert("No rows are selected");
-	}
-}

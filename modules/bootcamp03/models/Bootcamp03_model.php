@@ -13,7 +13,7 @@ class Bootcamp03_model extends CI_Model
             [
                 'field' => 'nama',
                 'label' => 'Nama',
-                'rules' => 'required|max_length[100]'
+                'rules' => 'required|alpha|max_length[100]'
             ],
             [
                 'field' => 'tempat_lahir',
@@ -85,11 +85,13 @@ class Bootcamp03_model extends CI_Model
         $query = $this->db->get_where('karyawan', array('nik' => $data['nik']));
 
         if ($query->num_rows() > 0) {
-            echo "<script> alert('NIK SUDAH DIGUNAKAN'); </script>";
-            redirect(base_url() . 'index.php/bootcamp03/?id=' . $data['created_by']);
+            $data = array('status' => 'error', 'message' => 'NIK TELAH TERPAKAI! Gagal menambahkan data karyawan');
         } else {
-            return $this->db->insert('karyawan', $data);
+            $this->db->insert('karyawan', $data);
+            $data = array('status' => 'success', 'message' => 'Data karyawan berhasil ditambahkan');
         }
+
+        return json_encode($data);
     }
 
     public function nikCheck()
@@ -98,9 +100,9 @@ class Bootcamp03_model extends CI_Model
         $query = $this->db->get_where('karyawan', array('nik' => $nik));
 
         if ($query->num_rows() > 0) {
-            $data = array('status' => 'success', 'message' => 'NIK ' . $nik . ' sudah tersedia / dipakai');
+            $data = array('status' => 'success', 'message' => 'NIK ' . $nik . ' sudah terpakai !');
         } else {
-            $data = array('status' => 'error', 'message' => 'NIK' . $nik . 'tidak ditemukan');
+            $data = array('status' => 'error', 'message' => 'NIK ' . $nik . ' belum dipakai');
         }
 
         return json_encode($data);
@@ -170,5 +172,13 @@ class Bootcamp03_model extends CI_Model
     public function delKaryawan($where)
     {
         $this->db->delete('karyawan', $where);
+
+        if ( $this->db->affected_rows() > 0) {
+            $data = array('status' => 'success', 'message' => 'Data karyawan berhasil dihapus');
+        } else {
+            $data = array('status' => 'error', 'message' => 'Gagal hapus data karyawan');
+        }
+
+        return json_encode($data);
     }
 }

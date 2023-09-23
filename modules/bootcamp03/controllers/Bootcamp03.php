@@ -41,8 +41,7 @@ class Bootcamp03 extends CI_Controller
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('Bootcamp03_view', $data);
 		} else {
-			$data = $this->Bootcamp03_model->addKaryawan();
-			redirect('bootcamp03/?id=' . $this->session->userdata('user_session'));
+			echo $this->Bootcamp03_model->addKaryawan();
 		}
 	}
 
@@ -56,14 +55,13 @@ class Bootcamp03 extends CI_Controller
 	}
 
 	public function saveKaryawan() {
+
 		echo $this->Bootcamp03_model->saveKaryawan();
 	}
-
 
 	public function delKaryawan($nik)
 	{
 		$where = array('nik' => $nik);
-		$this->Bootcamp03_model->delKaryawan($where);
-		redirect('bootcamp03/?id=' . $this->session->userdata('user_session'));
+		echo $this->Bootcamp03_model->delKaryawan($where);
 	}
 }

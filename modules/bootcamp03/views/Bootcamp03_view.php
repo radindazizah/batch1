@@ -22,7 +22,7 @@
         <div class="button-wrapper">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addKaryawanModal">Add</button>
             <button type="button" class="btn btn-warning" id="editKaryawan">Edit</button>
-            <input type="button" class="btn btn-danger" value="Delete" onclick="getSelectedRow()" />
+            <input type="button" class="btn btn-danger" id="delKaryawan" value="Delete" />
         </div>
 
         <table id="userKaryawan"></table>
@@ -39,7 +39,7 @@
                         </button>
                     </div>
                     <!-- Modal Content  -->
-                    <form action="<?php echo base_url() ?>index.php/bootcamp03/addKaryawan/?id=<?php echo $user ?>" method="POST">
+                    <form id="addForm">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nik">NIK</label>
@@ -84,7 +84,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <input type="submit" class="btn btn-primary btn-submit" name="submit" value="Submit"></input>
+                            <input type="button" class="btn btn-primary btn-submit" id="addKaryawan" name="submit" value="Submit"></input>
                         </div>
                     </form>
                 </div>

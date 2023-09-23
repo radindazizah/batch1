@@ -13,16 +13,24 @@ class Bootcamp08 extends CI_Controller {
 
 	public function index()
 	{
+		$data['user']=$this->Bootcamp08_model->tampil_data()->result();
 		$data['user']=$this->input->get_post('id');
 
 		$this->load->view('Bootcamp08_view',$data);
 		
 	}
 
+	function tambah(){
+		$this->load->view('Bootcamp08_view');
+	}
+	
+	function tambah_aksi (){
+		$this->Bootcamp08_model->input_data();
+		redirect('Bootcamp08/index');
+	}
+
 	public function getListData(){
 		$data = $this->Bootcamp08_model->getListData();
 		echo $data;
 	}
-	
-	
 }

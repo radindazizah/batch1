@@ -65,4 +65,5 @@ class Bootcamp04_model extends CI_Model
             return false;
         }
     }
+   
 }

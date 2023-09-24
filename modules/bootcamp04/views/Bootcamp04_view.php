@@ -17,8 +17,8 @@
         <?php echo "Username: " . $user; ?>
 		<div class="button-wrapper">
 			<!-- <button type="button" class="btn btn-primary" id="show-add">Add</button>
-            <button type="button" class="btn btn-warning">Edit</button>
-			<button type="button" class="btn btn-danger">Delete</button>-->
+            <button type="button" class="btn btn-warning">Edit</button>-->
+			<button type="button" class="btn btn-danger">Delete</button>
 		</div>
 		
         <div class="form-wrapper">

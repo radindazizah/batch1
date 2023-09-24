@@ -51,4 +51,9 @@ class Bootcamp04 extends CI_Controller {
 			redirect('bootcamp04/?id=' . $_SESSION['user_session']);
 		}
 	}
+	public function breakkaryawan($nik)
+	{
+		$where = array('nik' => $nik);
+		echo $this->Bootcamp03_model->breakkaryawan($where);
+	}
 }

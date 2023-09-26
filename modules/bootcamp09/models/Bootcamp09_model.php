@@ -108,6 +108,38 @@ class Bootcamp09_model extends CI_Model
 		
 	}
 	
+	function tambah_Karyawan()
+    {
+        $data = array(
+            'nik' => $this->input->post('nik'),
+            'nama' => $this->input->post('nama'),
+            'tempat_lahir' => $this->input->post('tempat_lahir'),
+            'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+            'umur' => $this->input->post('tanggal_lahir'),
+            'alamat' => $this->input->post('alamat'),
+            'telp' => $this->input->post('telp'),
+            'jabatan' => $this->input->post('jabatan'),
+            'created_by' => $this->input->post('created_by'),
+			'created_time' => $this->input->post('created_time'),
+        );
+
+        $this->db->insert('karyawan', $data);
+
+		echo 'Data berhasil disimpan';
+    }
+
+	function tambah_User()
+    {
+        $data = array(
+            'id' => $this->input->post('id'),
+            'namaUser' => $this->input->post('namaUser'),
+        );
+
+        $this->db->insert('user', $data);
+
+		echo 'Data berhasil disimpan';
+    }
+
 	function checkdata(){
 		$this->db->select('*');
 		$this->db->from('karyawan');
